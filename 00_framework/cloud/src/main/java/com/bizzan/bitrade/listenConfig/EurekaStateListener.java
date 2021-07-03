@@ -45,40 +45,41 @@ public class EurekaStateListener {
     
 	@EventListener(condition = "#event.replication==false")
     public void listen(EurekaInstanceCanceledEvent event) {
-        String msg="您的服务"+event.getAppName()+"\n"+event.getServerId()+"已下线";
+        String msg="Your service"+event.getAppName()+"\n"+event.getServerId()+"Offline";
         logger.info(msg);
         
         String[] adminList = admins.split(",");
 		for(int i = 0; i < adminList.length; i++) {
-			sendEmailMsg(adminList[i], msg, "[服务]服务下线通知");
+			sendEmailMsg(adminList[i], msg, "[Service] Service offline notification");
 		}
     }
  
     @EventListener(condition = "#event.replication==false")
     public void listen(EurekaInstanceRegisteredEvent event) {
         InstanceInfo instanceInfo = event.getInstanceInfo();
-        String msg="服务"+instanceInfo.getAppName()+"\n"+  instanceInfo.getHostName()+":"+ instanceInfo.getPort()+ " \nip: " +instanceInfo.getIPAddr() +"进行注册";
+        String msg="Service "+instanceInfo.getAppName()+"\n"+  instanceInfo.getHostName()+":"
+                + instanceInfo.getPort()+ " \nip: " +instanceInfo.getIPAddr() +"Register";
         logger.info(msg);
 
         String[] adminList = admins.split(",");
 		for(int i = 0; i < adminList.length; i++) {
-			sendEmailMsg(adminList[i], msg, "[服务]服务上线通知");
+			sendEmailMsg(adminList[i], msg, "[Service] Notification of service launch");
 		}
     }
  
     @EventListener
     public void listen(EurekaInstanceRenewedEvent event) {
-        logger.info("服务{}进行续约", event.getServerId() +"  "+ event.getAppName());
+        logger.info("Service{}renew", event.getServerId() +"  "+ event.getAppName());
     }
  
     @EventListener
     public void listen(EurekaRegistryAvailableEvent event) {
-        logger.info("注册中心启动,{}", System.currentTimeMillis());
+        logger.info("Registration center started,{}", System.currentTimeMillis());
     }
  
     @EventListener
     public void listen(EurekaServerStartedEvent event) {
-        logger.info("注册中心服务端启动,{}", System.currentTimeMillis());
+        logger.info("The registration center server is started, ()", System.currentTimeMillis());
     }
  
     @Async
