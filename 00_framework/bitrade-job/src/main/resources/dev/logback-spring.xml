@@ -10,11 +10,11 @@
 
 	<!--按天生成日志 -->
 	<appender name="logFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
-		<rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+		<!--<rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
 			<FileNamePattern> /logs/job/%d{yyyy-MM-dd}/%d{yyyy-MM-dd}.%i.log </FileNamePattern>
 			<maxFileSize>200MB</maxFileSize>
 			<maxHistory>100</maxHistory>
-		</rollingPolicy>
+		</rollingPolicy>-->
 		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
 			<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>
 		</encoder>
