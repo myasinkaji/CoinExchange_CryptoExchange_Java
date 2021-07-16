@@ -54,7 +54,7 @@ public class MemberInterceptor implements HandlerInterceptor {
                 session.setAttribute(SysConstant.SESSION_MEMBER, AuthMember.toAuthMember(member));
                 return true;
             } else {
-                ajaxReturn(response, 4000, "当前登录状态过期，请您重新登录！");
+                ajaxReturn(response, 4000, "The current login status has expired, please log in again!");
                 return false;
             }
         }
