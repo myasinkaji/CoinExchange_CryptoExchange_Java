@@ -85,11 +85,11 @@ public class MemberService extends BaseService {
     public Member login(String username, String password) throws Exception {
         Member member = memberDao.findMemberByMobilePhoneOrEmail(username, username);
         if (member == null) {
-            throw new AuthenticationException("账号或密码错误");
+            throw new AuthenticationException("Incorrect username or password");
         } else if (!Md5.md5Digest(password + member.getSalt()).toLowerCase().equals(member.getPassword())) {
-            throw new AuthenticationException("账号或密码错误");
+            throw new AuthenticationException("Incorrect username or password");
         } else if (member.getStatus().equals(CommonStatus.ILLEGAL)) {
-            throw new AuthenticationException("该帐号处于未激活/禁用状态，请联系客服");
+            throw new AuthenticationException("The account is in an inactive/disabled state, please contact customer service");
         }
         return member;
     }
