@@ -8,22 +8,22 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
- * 所有只有两种状态的都可使用,ordinal为0表示正常，启用；ordinal为1表示软删除，禁用，取消.<br>
+ * All those with only two states can be used, ordinal is 0 means normal, enable; ordinal is 1 means soft delete, disable, cancel.<br>
  *
  * @author GS
- * @date 2017年12月07日
+ * @date December 07, 2017
  */
 @AllArgsConstructor
 @Getter
 public enum CommonStatus implements BaseEnum {
     /**
-     * 表示正常状态
+     * Indicates normal state
      */
-    NORMAL("正常"),
+    NORMAL("normal"),
     /**
-     * 表示非法状态
+     * Indicates illegal status
      */
-    ILLEGAL("非法");
+    ILLEGAL("illegal");
 
     @Setter
     private String cnName;

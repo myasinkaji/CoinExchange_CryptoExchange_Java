@@ -2,14 +2,14 @@ package com.bizzan.bitrade.core;
 
 /**
  * @author GS
- * @date 2017年12月12日
+ * @date December 12, 2017
  */
 public interface BaseEnum {
 
     /**
-     * 得到枚举类的序号
+     * Get the serial number of the enumeration class
      *
-     * @return 序号
+     * @return Serial number
      */
     int getOrdinal();
 }
